@@ -34,19 +34,15 @@ describe('Server', () => {
   	})
   })
 
-  describe('', () => {
+  describe('POST /students', () => {
   	it('', () => {})
   })
 
-  describe('', () => {
+  describe('POST /students/1', () => {
   	it('', () => {})
   })
 
-  describe('', () => {
-  	it('', () => {})
-  })
-
-  describe('', () => {
+  describe('DELETE /students/1', () => {
   	it('', () => {})
   })
 })
