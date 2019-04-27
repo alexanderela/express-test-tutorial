@@ -24,8 +24,14 @@ describe('Server', () => {
   	})
   })
 
-  describe('', () => {
-  	it('', () => {})
+  describe('GET /students/1', () => {
+  	it('should return a single student', async () => {
+  		const expectedStudent = await database('students').first()
+  		const id = expectedStudent.id
+  		const res = await request(app).get(`/students/${id}`)
+  		const result = res.body[0]
+  		expect(result).toEqual(expectedStudent)
+  	})
   })
 
   describe('', () => {
