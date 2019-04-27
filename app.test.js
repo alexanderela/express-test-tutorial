@@ -1,4 +1,4 @@
-const environment = process.env.NODE_ENV || 'developement'
+const environment = process.env.NODE_ENV || 'development'
 const configuration = require('./knexfile')[environment]
 const database = require('knex')(configuration)
 
@@ -15,27 +15,34 @@ describe('Server', () => {
     })
   })
 
-  describe('', () => {
+  describe('GET /students', () => {
+  	it('should return all the students in the DB', async () => {
+  		const expectedStudents = students.length
+  		const res = await request(app).get('/students')
+  		const result = res.body
+  		expect(result.length).toEqual(expectedStudents)
+  	})
+  })
+
+  describe('GET /students/1', () => {
+  	it('should return a single student', async () => {
+  		const expectedStudent = await database('students').first()
+  		const id = expectedStudent.id
+  		const res = await request(app).get(`/students/${id}`)
+  		const result = res.body[0]
+  		expect(result).toEqual(expectedStudent)
+  	})
+  })
+
+  describe('POST /students', () => {
   	it('', () => {})
   })
 
-  describe('', () => {
+  describe('POST /students/1', () => {
   	it('', () => {})
   })
 
-  describe('', () => {
-  	it('', () => {})
-  })
-
-  describe('', () => {
-  	it('', () => {})
-  })
-
-  describe('', () => {
-  	it('', () => {})
-  })
-
-  describe('', () => {
+  describe('DELETE /students/1', () => {
   	it('', () => {})
   })
 })
