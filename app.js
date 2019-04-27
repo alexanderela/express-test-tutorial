@@ -24,4 +24,20 @@ app.get('/students', (request, response) => {
 		});
 });
 
+app.get('/students/:id', (request, response) => {
+	database('students').where('id', request.params.id).select()
+		.then(students => {
+			if (students.length) {
+				response.status(200).json(students);
+			} else {
+				response.status(404).json({
+					error: `Could not find student with id ${request.params.id}`
+				});
+			}
+		})
+		.catch(error => {
+			response.status(500).json({ error });
+		});
+});
+
 module.exports = app
