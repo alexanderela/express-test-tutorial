@@ -19,7 +19,6 @@ describe('Server', () => {
   	it('should return all the students in the DB', async () => {
   		const expectedStudents = students.length
   		const res = await request(app).get('/students')
-  		console.log(request)
   		const result = res.body
   		expect(result.length).toEqual(expectedStudents)
   	})
