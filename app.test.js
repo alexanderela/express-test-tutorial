@@ -1,4 +1,4 @@
-const environment = process.env.NODE_ENV || 'developement'
+const environment = process.env.NODE_ENV || 'development'
 const configuration = require('./knexfile')[environment]
 const database = require('knex')(configuration)
 
@@ -15,8 +15,14 @@ describe('Server', () => {
     })
   })
 
-  describe('', () => {
-  	it('', () => {})
+  describe('GET /students', () => {
+  	it('should return all the students in the DB', async () => {
+  		const expectedStudents = students.length
+  		const res = await request(app).get('/students')
+  		console.log(request)
+  		const result = res.body
+  		expect(result.length).toEqual(expectedStudents)
+  	})
   })
 
   describe('', () => {
