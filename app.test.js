@@ -1,5 +1,10 @@
+const environment = process.env.NODE_ENV || 'developement'
+const configuration = require('./knexfile')[environment]
+const database = require('knex')(configuration)
+
 import request from 'supertest'
 import app from './app'
+
 
 describe('Server', () => {
   describe('init', () => {
