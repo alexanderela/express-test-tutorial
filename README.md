@@ -1,3 +1,5 @@
+<a href="https://zenhub.com"><img src="https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png"></a>
+
 # Server-Side Testing with Express, Jest, Supertest, and Knex
 
 Starter repo for Express API server interacting with a DB, using Jest and
