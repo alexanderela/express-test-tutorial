@@ -1,5 +1,4 @@
-<a href="https://zenhub.com"><img src="https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png"></a>
-[![](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.com)
+<a href="https://app.zenhub.com/workspaces/express-testing-tutorial-5cc4f9f107a4ab52d27abce1/board?repos=183817666"><img src="https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png"></a>
 
 # Server-Side Testing with Express, Jest, Supertest, and Knex
 
