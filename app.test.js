@@ -39,10 +39,10 @@ describe('Server', () => {
   })
 
   describe('POST /students/1', () => {
-  	it('', () => {})
+  	it.skip('', () => {})
   })
 
   describe('DELETE /students/1', () => {
-  	it('', () => {})
+  	it.skip('', () => {})
   })
 })
