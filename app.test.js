@@ -8,6 +8,11 @@ import students from './students'
 
 
 describe('Server', () => {
+
+	beforeEach(async () => {
+		await database.seed.run()
+	})
+
   describe('init', () => {
     it('should return a 200 status', async () => {
       const res = await request(app).get('/')
@@ -35,14 +40,25 @@ describe('Server', () => {
   })
 
   describe('POST /students', () => {
-  	it('', () => {})
+  	it('should post a new student to the db', async () => {
+  		const newStudent = { lastname: 'Mitchell', program: 'BE', enrolled: false }
+  		const res = await request(app)
+  												.post('/students')
+  												.send(newStudent)
+
+  		const students = await database('students').where('id', res.body.id).select()
+  		const student = students[0]
+
+  		expect(res.status).toBe(200)
+  		expect(student.lastname).toEqual(newStudent.lastname)
+  	})
   })
 
   describe('POST /students/1', () => {
-  	it('', () => {})
+  	it.skip('', () => {})
   })
 
   describe('DELETE /students/1', () => {
-  	it('', () => {})
+  	it.skip('', () => {})
   })
 })
