@@ -8,6 +8,11 @@ import students from './students'
 
 
 describe('Server', () => {
+
+	beforeEach(async () => {
+		await database.seed.run()
+	})
+
   describe('init', () => {
     it('should return a 200 status', async () => {
       const res = await request(app).get('/')
