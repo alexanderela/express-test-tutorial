@@ -41,7 +41,15 @@ app.get('/students/:id', (request, response) => {
 });
 
 app.post('/students', (request, response) => {
-	
+	const student = request.body;
+
+	for(let requiredParam of ['lastname', 'program', 'enrolled']) {
+		if(!student[requiredParam]) {
+			return response.status(422).json({
+				error: `Expected format: {}.  You're missing the ${requiredParam} property.`
+			})
+		}
+	}
 })
 
 
