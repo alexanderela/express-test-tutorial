@@ -40,4 +40,26 @@ app.get('/students/:id', (request, response) => {
 		});
 });
 
+app.post('/students', (request, response) => {
+	const student = request.body;
+
+	for(let requiredParam of ['lastname', 'program', 'enrolled']) {
+		if(!student[requiredParam]) {
+			return response.status(422).json({
+				error: `Expected format: {}.  You're missing the ${requiredParam} property.`
+			})
+		}
+	}
+
+	database('students').insert(student, 'id')
+		.then(studentIds => response.status(201).json({
+			id: studentIds[0],
+			message: `Student "${student.lastname}" successfully created!`
+		}))
+		.catch(error => response.status(500).json({
+			error: error.message
+		}));
+});
+
+
 module.exports = app
