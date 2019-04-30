@@ -50,7 +50,16 @@ app.post('/students', (request, response) => {
 			})
 		}
 	}
-})
+
+	database('students').insert(student, 'id')
+		.then(studentIds => response.status(201).json({
+			id: studentIds[0],
+			message: `Student "${student.lastname}" successfully created!`
+		}))
+		.catch(error => response.status(500).json({
+			error: error.message
+		}));
+});
 
 
 module.exports = app
