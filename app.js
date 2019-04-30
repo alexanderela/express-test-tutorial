@@ -40,4 +40,9 @@ app.get('/students/:id', (request, response) => {
 		});
 });
 
+app.post('/students', (request, response) => {
+	
+})
+
+
 module.exports = app
