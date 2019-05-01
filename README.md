@@ -1,4 +1,3 @@
-## Setup
 <a href="https://app.zenhub.com/workspaces/crrt-teaching-tool-5cc5c6b429d79f4855fe3ba7/board?repos=178065941"><img src="./assets/zenhub-black-small.png"></a>
 
 # Server-Side Testing with Express, Jest, Supertest, and Knex
